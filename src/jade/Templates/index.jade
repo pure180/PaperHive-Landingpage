@@ -6,39 +6,6 @@ block Vars
   - var page = {title: 'Page Title', name: 'Start', url: '/', parent: '', index: true}
 
 block main
-  section#Section-01.fullsize(data-type="fullsize" data-spy="scroller" data-set="slider" data-scroller-style="opacity" data-scroller-end="0" data-scroller-start="1" data-scroller-reverse="1" data-scroller-faktor="1" data-trigger-end="#Section-02")
-    .fullsize-image()
-      img.img-responsive(src="http://paperhive.daniel-pfisterer.de/img/bg-02.jpg")
-    .fullsize-bg
-    .fullsize-content(data-type="position")
-      .container
-        .col-sm-12.text-center.margin-middle-bottom
-          h1.title-main PaperHive, where research is discussed.
-            span.title-border
-          h2 Helping scientists create knowledge at the speed of light. Together.
-        .col-sm-4.col-sm-offset-4.text-center
-          p.lead Coming soon.
-          .row
-            .col-xs-4
-              h3.title-count 120 
-                small H
-            .col-xs-4
-              h3.title-count 55 
-                small M
-            .col-xs-4
-              h3.title-count 33 
-                small S
-    .fullsize-arrow
-      a(data-toggle="ankernav" href="#Section-02")
-        i.glyphicon.glyphicon-menu-down
-  section#Section-02.fullsize(data-type="fullsize")
-    .fullsize-image
-      img.img-responsive(src="http://paperhive.daniel-pfisterer.de/img/bg-01.jpg")
-    .fullsize-bg
-    .fullsize-content(data-type="position")
-      .container
-        .col-sm-12.text-center
-          h1.title-main PaperHive, where research is discussed.
-            span.title-border
-          h2 Helping scientists create knowledge at the speed of light. Together.
-          p.lead Coming soon.
+  include ../Partials/PageParts/Main/section-start.jade
+  include ../Partials/PageParts/Main/section-about.jade
+  include ../Partials/PageParts/Main/section-subscribe.jade
