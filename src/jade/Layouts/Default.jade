@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+
+  block defaultVars
+    include ../Configuration/Defaults.jade
+  block Vars
+
+  head
+    block head
+      //- Include <HEAD></HEAD>
+      include ../Partials/Head.jade
+  
+  body.preload-loading(data-trigger="screen")
+    .preload
+      .preload-carets
+        .preload-item
+        .preload-item
+        .preload-item
+        .preload-item
+        .preload-item
+        .preload-item
+        .preload-item
+        .preload-item
+      .preload-text.text-center
+        .lead.text-uppercase Paperhive is loading...
+          
+    // START <header>
+    header
+      block header
+        //- Include Navbar-default
+        include ../Partials/PageParts/Header/Navigation.jade
+    // END </header>
+    // START <main>
+    main
+      block main
+    //END </main>
+       
+    block footer
+      //- Include Navbar-default
+      include ../Partials/PageParts/Footer/Footer.jade
+
+    block scripts
+      script(src='js/main.js')
+      script(type="text/javascript").

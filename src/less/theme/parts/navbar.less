@@ -1,0 +1,179 @@
+.navbar {
+  &-ph {
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%); /* W3C */
+    border: none;
+  }
+
+  &-toggle {
+    display: block;
+    border-color: @navbar-default-toggle-border-color;
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    border-width: 2px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgba(255,255,255,0);
+    &:hover, &.menu-active {
+      background-color: rgba(255,255,255,.4);
+    }
+
+    > .icon-bar {
+      background-color: @navbar-default-toggle-icon-bar-bg;
+      animation-duration: .4s;
+      position: relative;
+
+      &:nth-child(2) {
+        top: 0;
+      }
+      &:nth-child(3) {
+        opacity: 1;
+        transition: .4s ease;
+      }
+      &:nth-child(4) {
+        top: 0;
+      }
+    }
+    &.menu-active {
+      > .icon-bar {
+        &:nth-child(2) {
+          animation-name: OpenToggleLeft;
+          transform: rotate(225deg);
+          top: 6px;
+        }
+        &:nth-child(3) {
+          opacity: 0;
+        }
+        &:nth-child(4) {
+        animation-name: OpenToggleRight;
+          transform: rotate(315deg);
+          top: -6px;
+        }
+      }
+    }
+    &.closing {
+      > .icon-bar {
+        &:nth-child(2) {
+          animation-name: CloseToggleLeft;
+          transform: rotate(0deg);
+          top: 0;
+        }
+        &:nth-child(3) {
+        }
+        &:nth-child(4) {
+          animation-name: CloseToggleRight;
+          transform: rotate(0deg);
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &-brand {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @media (max-width: @screen-xs-max) {
+      height: auto;
+      padding-top: 14px;
+      > img {
+        height: auto;
+        max-width: 210px;
+      }
+    }
+  }
+
+  &-collapse {
+    transition: right 0.4s ease-out 0s;
+    position: absolute;
+    right: -@navbar-width;
+    top: @navbar-height;
+    width: @navbar-width;
+    background-color: #000;
+    &.menu-open {
+      right: 0;
+    }
+  }
+  @media (max-width: @screen-xs-max) {
+    &-collapse {
+      right: -100%;
+      width: 100%;
+    }
+  }
+}
+
+.push-element {
+  left: 0;
+  overflow-x: hidden;
+  position: relative;
+  transition: left 0.4s ease-out 0s;
+  &.menu-open {
+    left: -@navbar-width;
+  }
+  @media (max-width: @screen-xs-max) {
+    &.menu-open {
+      left: -100%;
+    }
+  }
+}
+
+.nav-ph {
+  float: none;
+  > li {
+    float: none;
+    > a {
+      display: block;
+      color: #fff;
+      font-size: @font-size-large;
+      text-transform: uppercase;
+    }
+    &.active > a, > a:hover, > a:focus {
+      color: @color-blue;
+    }
+  }
+}
+@keyframes OpenToggleRight {
+  0% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: -6px;
+    transform: rotate(315deg);
+  }
+}
+
+@keyframes OpenToggleLeft {
+  0% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 6px;
+    transform: rotate(225deg);
+  }
+}
+
+@keyframes CloseToggleRight {
+  0% {
+    transform: rotate(315deg);
+    top: -6px;
+  }
+  100% {
+    transform: rotate(0deg);
+    top: 0;
+  }
+}
+
+@keyframes CloseToggleLeft {
+  0% {
+    top: 6px;
+    transform: rotate(225deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    top: 0;
+  }
+}

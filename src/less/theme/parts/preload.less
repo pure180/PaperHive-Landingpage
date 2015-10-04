@@ -1,0 +1,103 @@
+.preload {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1050;
+  background-color: #000;
+  &.loaded {
+
+  }
+  &-loading {
+    position: relative;
+    //overflow: hidden;
+    height: 100%;
+  }
+
+  &-carets {
+    position: relative;
+    margin: auto;
+    height: 95px;
+    width: 88px;
+    margin-top: 20%;
+  }
+
+  &-text {
+    padding: @grid-gutter-width/2;
+    color: @color-blue;
+  }
+
+  &-item {
+    width: 50px;
+    height: 50px;
+
+    transform: rotate(135deg) translate(0px, 0px) skew(15deg, 15deg);
+    position: absolute;
+    border: 1px solid #000;
+    animation-name: carets;
+    animation-duration: 1.4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    left: 18px;
+
+    &:nth-child(1) {
+      bottom: 0;
+      background-color: #00ADDC;
+      z-index: 10;
+      animation-delay: .0s;
+    }
+    &:nth-child(2) {
+      bottom: 6px;
+      background-color: #00B9E1;
+      z-index: 20;
+      animation-delay: .1s;
+    }
+    &:nth-child(3) {
+      bottom: 12px;
+      background-color: #00C4E6;
+      z-index: 30;
+      animation-delay: .2s;
+    }
+    &:nth-child(4) {
+      bottom: 18px;
+      background-color: #00D0EB;
+      z-index: 40;
+      animation-delay: .3s;
+    }
+    &:nth-child(5) {
+      bottom: 24px;
+      background-color: #00DCF0;
+      z-index: 50;
+      animation-delay: .4s;
+    }
+    &:nth-child(6) {
+      bottom: 30px;
+      background-color: #00E8F5;
+      z-index: 60;
+      animation-delay: .5s;
+    }
+    &:nth-child(7) {
+      bottom: 36px;
+      background-color: #00F3FA;
+      z-index: 70;
+      animation-delay: .6s;
+    }
+    &:nth-child(8) {
+      bottom: 42px;
+      background-color: #00FFFF;
+      z-index: 80;
+      animation-delay: .7s;
+    }
+  }
+}
+
+@keyframes carets {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,100,100italic,500italic,700,700italic,900,900italic);
+
+.title{
+  &-main {
+
+  }
+  &-border {
+    display: block;
+    width: 10%;
+    height: 2px;
+    background-color: @color-blue;
+    margin: @grid-gutter-width/2 auto @grid-gutter-width auto;
+  }
+  &-count {
+    margin-top: 0;
+    border: 2px solid #fff;
+    line-height: 48px;
+    border-radius: @border-radius-large;
+    background-color: rgba(255,255,255,.2);
+  }
+}
+
+@media (max-width: @screen-xs-max){
+
+  h1, .h1 {
+    font-size: ceil((@font-size-base * 2.07));
+  }
+  h2, .h2 {
+    font-size: ceil((@font-size-base * 1.5));
+  }
+}
