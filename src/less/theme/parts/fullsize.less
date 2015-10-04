@@ -1,6 +1,7 @@
 .fullsize {
   position: relative;
   padding-bottom: @grid-gutter-width;
+  height: 100%;
   &-image, &-bg {
     position: absolute;
     left: 0;
@@ -20,6 +21,12 @@
   &-content {
    position: absolute;
    width: 100%;
+   height: 100%;
+   display: table;
+   > .container {
+     display: table-cell;
+     vertical-align: middle;
+   }
   }
 
   &-arrow {
