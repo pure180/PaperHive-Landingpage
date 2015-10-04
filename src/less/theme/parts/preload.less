@@ -6,6 +6,13 @@
   height: 100%;
   z-index: 1050;
   background-color: #000;
+  display: table;
+
+  > .container {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
   &.loaded {
 
   }
@@ -20,7 +27,6 @@
     margin: auto;
     height: 95px;
     width: 88px;
-    margin-top: 20%;
   }
 
   &-text {
