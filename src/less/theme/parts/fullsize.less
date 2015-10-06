@@ -48,4 +48,17 @@
       }
     }
   }
+  @media screen and (max-width: @screen-xs-max) {
+    &:nth-child(2) {
+      height: auto;
+      .fullsize{
+        &-content {
+          display: block;
+          position: relative;
+          padding-top: @grid-gutter-width;
+          padding-bottom: @grid-gutter-width*2;
+        }
+      }
+    }
+  }
 }

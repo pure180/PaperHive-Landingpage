@@ -14,4 +14,40 @@
   }
   &-text {
   }
+  @media screen and (max-width: @screen-xs-max) {
+    padding-top: @grid-gutter-width/2;
+    margin-bottom: @grid-gutter-width;
+    &-circle {
+      width: 90px;
+      height: 90px;
+      line-height: 90px;
+      font-size: 50px;
+      float: left;
+      margin-top: 15px;
+    }
+    &-text {
+      margin-left: 105px;
+      text-align: left;
+      > h3, > .h3 {
+        margin-top: 0;
+      }
+    }
+    .col-sm-4:nth-child(even) &{
+      &-circle {
+        float: right;
+      }
+      &-text {
+        margin-right: 105px;
+        margin-left: auto;
+        text-align: right;
+      }
+    }
+    .col-sm-4:last-child & {
+      margin-bottom: 0;
+    }
+    &:after {
+      clear: both;
+    }
+
+  }
 }

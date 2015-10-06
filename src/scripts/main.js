@@ -1,6 +1,6 @@
 +(function(){
   "use strict";
-
+/*
   $(document).ready(function() {
     setTimeout(function(){
         $('body').delay(600).removeClass('preload-loading');
@@ -9,5 +9,5 @@
     }, 3000);
 
   });
-
+*/
 })();

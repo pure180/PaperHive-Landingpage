@@ -19,8 +19,8 @@
     this.start          = this.offsetTop()
     this.end            = this.offsetBottom()
 
-    //$('.inidcator.top').css('top', animation_begin_pos )
-    //$('.inidcator.bottom').css('top', animation_end_pos )
+    //$('.inidcator.top').css('top', this.start )
+    //$('.inidcator.bottom').css('top', this.end )
 
     this.Init()
   }
@@ -94,7 +94,6 @@
   }
 
   DpScroller.prototype.After = function() {
-    //console.log(afterEvent)
     this.$element.one()
       .removeClass(this.options.whileClass)
       .addClass(this.options.afterClass)
