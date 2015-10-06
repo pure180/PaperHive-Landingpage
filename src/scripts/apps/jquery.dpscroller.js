@@ -24,7 +24,7 @@
 
     this.Init()
   }
-  DpScroller.VERSION  = '1.0.1'
+  DpScroller.VERSION  = '1.0.2'
 
   DpScroller.DEFAULTS = {
     beforeClass       : 'scroller_before',
@@ -59,14 +59,11 @@
 
   DpScroller.prototype.Position = function() {
     var percent_scroll_position
+    var percent = (this.pos - this.start) / (this.end - this.start)
     if( this.data.scrollerReverse ) {
-      percent_scroll_position = this.data.scrollerEnd + (1 - (this.pos / (this.end - this.start) * this.data.scrollerFaktor))
+      percent_scroll_position = this.data.scrollerStart - ( percent * (this.data.scrollerStart-this.data.scrollerEnd) * this.data.scrollerFaktor)
     } else {
-      if (this.pos > this.end) {
-        percent_scroll_position = this.data.scrollerStart + (this.pos / (this.end - this.start) * -1 * this.data.scrollerFaktor)
-      } else {
-        percent_scroll_position = this.data.scrollerStart + (this.pos / (this.end - this.start) * this.data.scrollerFaktor)
-      }
+      percent_scroll_position = this.data.scrollerStart + ( percent * this.data.scrollerEnd * this.data.scrollerFaktor) - this.data.scrollerStart
     }
     return percent_scroll_position
   }
