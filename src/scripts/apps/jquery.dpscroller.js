@@ -60,10 +60,10 @@
   DpScroller.prototype.Position = function() {
     var percent_scroll_position
     var percent = (this.pos - this.start) / (this.end - this.start)
-    if( this.data.scrollerReverse ) {
-      percent_scroll_position = this.data.scrollerStart - ( percent * (this.data.scrollerStart-this.data.scrollerEnd) * this.data.scrollerFaktor)
+    if( this.options.scrollerReverse ) {
+      percent_scroll_position = this.options.scrollerStart - ( percent * (this.options.scrollerStart-this.options.scrollerEnd) * this.options.scrollerFaktor)
     } else {
-      percent_scroll_position = this.data.scrollerStart + ( percent * this.data.scrollerEnd * this.data.scrollerFaktor) - this.data.scrollerStart
+      percent_scroll_position = this.options.scrollerStart + ( percent * this.options.scrollerEnd * this.options.scrollerFaktor) - this.options.scrollerStart
     }
     return percent_scroll_position
   }
@@ -86,7 +86,7 @@
       .addClass(this.options.beforeClass)
 
     if(this.options.scrollerStyle) {
-      this.$element.css(this.options.scrollerStyle, this.data.scrollerStart );
+      this.$element.css(this.options.scrollerStyle, this.options.scrollerStart * this.options.scrollerFaktor );
     }
   }
 
@@ -96,12 +96,12 @@
       .addClass(this.options.afterClass)
 
     if(this.options.scrollerStyle){
-      this.$element.css(this.options.scrollerStyle, this.data.scrollerEnd );
+      this.$element.css(this.options.scrollerStyle, this.options.scrollerEnd * this.options.scrollerFaktor);
     }
   }
 
   DpScroller.prototype.offsetTop = function() {
-    var trigger = this.data.triggerStart
+    var trigger = this.options.triggerStart
     var offsetTop
     if(trigger){
       offsetTop = typeof trigger === 'number' ? trigger :  $(trigger).offset().top
@@ -112,7 +112,7 @@
   }
 
   DpScroller.prototype.offsetBottom = function() {
-    var trigger = this.data.triggerEnd
+    var trigger = this.options.triggerEnd
     var offsetBottom
     if(trigger){
       offsetBottom = typeof trigger === 'number' ? trigger : $(trigger).offset().top
@@ -142,7 +142,7 @@
   }
 
 
-  $(window).on('scroll.dp.scroller.data-api', function() {
+  $(window).on('load, scroll.dp.scroller.data-api', function() {
     $('[data-spy="scroller"]').each(function(){
       var $spy = $(this)
       var data = $spy.data()
